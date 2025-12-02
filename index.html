@@ -12,7 +12,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background: white;
+      background: #eeeeee;
       position: relative;
     }
 
@@ -30,14 +30,26 @@
 
     #gif {
       position: absolute;
-      width: 400px;
+      width: 400px; /* Taille du GIF */
       display: none;
       z-index: 5;
       pointer-events: none;
     }
+
+    /* Nouvelle image en haut à gauche */
+    #logo {
+      position: absolute;
+      top: 10px; /* un peu de marge */
+      left: 10px;
+      width: 250px; /* taille de l'image */
+      height: auto;
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
+
+  <img id="logo" src="Logo_Urssaf_Caisse_nationale.svg" alt="Logo" />
 
   <button class="btn" id="bouton">Arrêt Lotus Notes</button>
 
