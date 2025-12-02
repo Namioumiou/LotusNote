@@ -30,17 +30,14 @@
 
     #gif {
       position: absolute;
-      width: 400px; /* Taille du GIF */
+      width: 400px;
       display: none;
       z-index: 5;
       pointer-events: none;
     }
 
-    /* Nouvelle image en haut à gauche */
     #logo {
       position: absolute;
-      top: 10px; /* un peu de marge */
-      left: 10px;
       width: 250px; /* taille de l'image */
       height: auto;
       z-index: 10;
@@ -61,6 +58,20 @@
     const btn = document.getElementById("bouton");
     const gif = document.getElementById("gif");
     const son = document.getElementById("son");
+    const logo = document.getElementById("logo");
+
+    // Positionne le logo entre le haut de la page et le bouton, centré horizontalement
+    function positionLogo() {
+      const rect = btn.getBoundingClientRect();
+      logo.style.left = window.innerWidth / 2 - logo.width / 2 + "px";
+      logo.style.top = rect.top / 2 - logo.height / 2 + "px";
+    }
+
+    // Initial position
+    positionLogo();
+
+    // Repositionne si la fenêtre est redimensionnée
+    window.addEventListener("resize", positionLogo);
 
     btn.addEventListener("click", () => {
       gif.style.display = "block";
